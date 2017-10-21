@@ -1,0 +1,265 @@
+.feather {
+  animation: feather infinite 1.5s linear;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+.emptyEvent, .App-title, h1, h2, h3, h4  {
+  color: #222;
+}
+
+.App-title, .eventDates b, .emptyEvent {
+  font-family: fantasy;
+}
+.navbar {
+  margin: 1em 0 0 0;
+}
+
+@keyframes feather {
+  0% { transform: translate3d(0, 0, 0) rotate(5deg); }
+  25% { transform: translate3d(1%, 0, 0) rotate(10deg); }
+  50% { transform: translate3d(0%, 0, 0) rotate(5deg); }
+  75% { transform: translate3d(1%, 0, 0) rotate(10deg); }
+  100% { transform: translate3d(0%, 0, 0) rotate(5deg); }
+}
+
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  //display: flex;
+  //flex-direction: row;
+}
+.event {
+  border-bottom: 1px solid #a6a9a6;
+}
+
+.event {
+  //margin: 0 5% 10%;
+  position: relative;
+  //padding: 1em;
+}
+
+.eventListing {
+  margin: 1em 0 0 0;
+  padding: 0 1em;
+}
+
+.eventDates {
+  position: relative;
+  bottom: .5em;
+}
+.eventDates span {
+  margin: 0 .3em;
+  color: #646964;
+}
+.eventDates b {
+  color: #a6a9a6;
+}
+
+.eventDates::before {
+  content: '\01F550';
+  vertical-align: middle;
+}
+
+.eventsList {
+  border-top: 1px solid #a6a9a6;
+  padding: 1em 0;
+  margin: 0;
+}
+.monthDaysList {
+  margin: 0 0 1em 0;
+}
+
+.weekday, .day {
+  margin: 0 .5em;
+  // flex: 1;
+  width: 9%;
+  padding: 1em 0;
+}
+
+.day:not(.empty), .calNav, input[type='button'], .close::before, .feather {
+  cursor: pointer;
+}
+.navigation, .currentMonth, .weekday, .day, .inputFields, .navbar, .emptyEvent, .weekDaysList, .monthDaysList {
+  text-align: center;
+}
+
+.day {
+  color: #cc8400;
+  transition: color .3s linear, background-color .3s linear;
+}
+
+.weekday {
+  font-weight: bold;
+}
+
+.weekday {
+  color: white;
+}
+
+.weekday, .day, .currentMonth, .calNav, .next::after, .previous::after {
+  display: inline-block;
+}
+
+
+.calendarComponent {
+  //width: 50%;
+  //min-width: 395px;
+  max-width: 600px;
+  min-width: 321px;
+  border: 1px solid black;
+  padding: .5em;
+  position: absolute;
+  background-color: #222;
+  margin: auto;
+  left: 0;
+  right: 0;
+  animation: slideIn .5s  cubic-bezier(0.7, 0, 0.3, 1) !important;
+  z-index: 100;
+}
+
+
+.close.visible::before {
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+}
+
+.close::before {
+  content: '\2716';
+  color: #a6a9a6;
+  opacity: 0;
+  transition: opacity .3s linear, color .3s linear;
+}
+
+.close.visible {
+  margin: .5em;
+}
+
+.close.visible:hover::before {
+  color: white;
+}
+.close.remove:hover::before {
+  color: black;
+}
+
+.close.remove {
+  top: 3em;
+  right: 1em;
+}
+
+.close.visible {
+  top: 0;
+  right: 0;
+}
+
+.event:hover .close::before {
+  opacity: 1;
+}
+
+.inputFields {
+  padding: 1em 1em 0;
+  animation: slideIn .7s  cubic-bezier(0.7, 0, 0.3, 1) !important;
+}
+
+input[type='button'] {
+  background: black;
+  color: white;
+}
+
+.notification {
+  color: orange;
+}
+
+input, textarea {
+  border: none;
+  //outline: none;
+  border-radius: 17px;
+  padding: .8em;
+  font-size: 1em;
+  width: 70%;
+  margin: 0 0 1em 0;
+}
+
+.currentMonth {
+  color: #e8e8e8;
+}
+
+.day[dim='true'] {
+  color: #5a5a5a;;
+}
+
+
+textarea {
+  line-height: 3em;
+}
+
+@keyframes slideIn {
+    from {
+      transform: translate3d(-100%,-100%,0);
+    }
+    to {
+      margin: auto;
+      left: 0;
+      right: 0;
+    }         
+}
+
+
+.next::after {
+  transform: rotate(-90deg);
+}
+.previous::after {
+  transform: rotate(90deg);
+}
+
+.calNav {
+  padding: 1em;
+  margin: 0 1em;
+  position: relative;
+  border-radius: 3px;
+  background-color: black;
+  vertical-align: middle;
+}
+
+.next:hover, .previous:hover {
+  background-color: black;
+}
+
+.day:not(.empty):hover{
+  //color: white;
+  background-color: black;
+}
+
+.next::after, .previous::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid white;
+  -webkit-transition: border-top .4s linear;
+  transition: border-top .4s linear;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+@media only screen and (min-width: 500px) {
+  .eventsList {
+    margin: 0 15%;
+  }
+  .weekday, .day {
+    width: 10%;
+  }
+}
